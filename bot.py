@@ -10,6 +10,8 @@ bot = commands.Bot(command_prefix='-', description=description)
 @bot.event
 async def on_ready():
     print('Ready!')
+    game = discord.Game("with the API")
+    await client.change_presence(status=discord.Status.idle, activity=game)
 	
 @bot.command()
 async def announcement(ctx, *, args):
