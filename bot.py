@@ -18,7 +18,7 @@ async def on_ready():
 async def announcement(ctx, *, args):
 	"""Announcement command!"""
 	embed=discord.Embed(title="Announcement", description=args, color=0x7700aa)
-	embed.set_footer(text="By EchoNoahGaming")
+	embed.set_footer(text="By Echolandia Studios")
 	await ctx.send("", embed=embed)
 
 bot.run(str(os.environ.get('BOT_TOKEN')))
