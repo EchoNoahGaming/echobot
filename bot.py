@@ -19,5 +19,21 @@ async def announcement(ctx, *, args):
 	embed=discord.Embed(title="Announcement", description=args, color=0x7700aa)
 	embed.set_footer(text="By Echolandia Studios")
 	await ctx.send("", embed=embed)
+	
+@client.event
+async def on_message(message):
+    if message.content.startswith('$thumb'):
+        channel = message.channel
+        await channel.send('Send me that 👍 reaction, mate')
+
+        def check(reaction, user):
+            return user == message.author and str(reaction.emoji) == '👍'
+
+        try:
+            reaction, user = await client.wait_for('reaction_add', timeout=60.0, check=check)
+        except asyncio.TimeoutError:
+            await channel.send('👎')
+        else:
+            await channel.send('👍')
 
 bot.run(str(os.environ.get('BOT_TOKEN')))
