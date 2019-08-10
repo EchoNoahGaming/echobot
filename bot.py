@@ -4,7 +4,7 @@ import asyncio
 import requests
 import os
 
-description = '''EchoBot by EchoNoahGaming'''
+description = '''EchoBot by Echolandia Studios'''
 bot = commands.Bot(command_prefix='-', description=description)
 
 @bot.event
@@ -13,7 +13,8 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
-    await Bot.change_presence(activity=discord.Game(name='test'))
+    game = discord.Game("with the API")
+    await client.change_presence(status=discord.Status.idle, activity=game)
 	
 @bot.command()
 async def announcement(ctx, *, args):
