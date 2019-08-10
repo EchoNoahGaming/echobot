@@ -9,11 +9,11 @@ bot = commands.Bot(command_prefix='-', description=description)
 
 @bot.event
 async def on_ready():
-    await Bot.change_presence(activity=discord.Game(name='test'))
     print('Logged in as')
     print(bot.user.name)
     print(bot.user.id)
     print('------')
+    await Bot.change_presence(activity=discord.Game(name='test'))
 	
 @bot.command()
 async def announcement(ctx, *, args):
