@@ -19,4 +19,9 @@ async def announcement(ctx, *, args):
 	embed.set_footer(text="By Echolandia Studios")
 	await ctx.send("", embed=embed)
 	
+@bot.command(description='For when you wanna settle the score some other way')
+async def choose(ctx, *choices: str):
+    """Chooses between multiple choices."""
+    await ctx.send(random.choice(choices))
+	
 bot.run(str(os.environ.get('BOT_TOKEN')))
